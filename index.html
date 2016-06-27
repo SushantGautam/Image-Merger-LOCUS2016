@@ -14,10 +14,13 @@ merge();
 
 
 function merge(){
-	var abc = document.getElementById('input1').value;
-after(abc,'https://www.googledrive.com/host/0B6XA6oTpuo9tT0VudmR4ajc4cnc');
-    var abcS = new Image();
 
+	var abc = document.getElementById('input1').value;
+
+after(abc,'https://www.googledrive.com/host/0B6XA6oTpuo9tT0VudmR4ajc4cnc');
+
+    var abcS = new Image();
+    abcS.src="https://www.googledrive.com/host/0B6XA6oTpuo9tT0VudmR4ajc4cnc"
     abcS.src = abc;
 
       var widthC = parseInt(abcS.width);
@@ -51,8 +54,8 @@ after(abc,'https://www.googledrive.com/host/0B6XA6oTpuo9tT0VudmR4ajc4cnc');
     var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-var imga = loadImage(abc, mainI);
-var img2 = loadImage(def, mainI);
+var imga = loadImageInput (abc, mainI);
+var img2 = loadImageSource(def, mainI);
 var imagesLoaded = 0;
 
 function mainI() {
@@ -61,28 +64,39 @@ function mainI() {
     if(imagesLoaded == 2) {
         // composite now
 
-
-        ctx.drawImage(imga, 0, 0);
+        ctx.drawImage(imga, 0, 0, canvas.width, canvas.height);
         
-        ctx.globalAlpha = 0.5;
-        ctx.drawImage(img2, 0, 0);
+        ctx.globalAlpha = 0.9;
+        ctx.drawImage(img2, canvas.width-(232*(0.70*canvas.width/232)) , canvas.height-((192)*(0.70*canvas.width/192)) ,232*(0.70*canvas.width/232), (192)*(0.70*canvas.width/192));
+        	// canvas.width, (canvas.height)*(616/canvas.width));
+
 
         
     }
 }
 
-function loadImage(src, onload) {
+function loadImageSource(src, onload) {
     // http://www.thefutureoftheweb.com/blog/image-onload-isnt-being-called
     var img = new Image();
     
     img.onload = onload;
     img.src = src;
-    img.style.width = '200px';
 
     return img;
 }
+function loadImageInput(src, onload) {
+    // http://www.thefutureoftheweb.com/blog/image-onload-isnt-being-called
+    var img = new Image();
+    
+    img.onload = onload;
+    img.src = src;
 
+
+    return img;
+}
 };
+
+
 
 </script>
 
