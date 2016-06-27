@@ -6,7 +6,7 @@
     <body>
 
     <script type="text/javascript">
-var abc= "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14051_1792321270993337_940333441973894940_n.jpg?oh=5386ee10f4a0632ec89396226dadddb8&oe=57EF8B6D"
+var def= "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14051_1792321270993337_940333441973894940_n.jpg?oh=5386ee10f4a0632ec89396226dadddb8&oe=57EF8B6D"
 merge();
 
 
@@ -15,7 +15,16 @@ merge();
 
 function merge(){
 	var abc = document.getElementById('input1').value;
-after(abc,'https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/1506517_1753960444829420_517402325496671745_n.jpg?oh=dfafb32cf83be3fef7534ecd176b4606&oe=57FA2F14');
+after(abc,'https://www.googledrive.com/host/0B6XA6oTpuo9tT0VudmR4ajc4cnc');
+    var abcS = new Image();
+
+    abcS.src = abc;
+
+      var widthC = parseInt(abcS.width);
+      var heightC = parseInt(abcS.height);
+
+      canvas.height=heightC;
+      canvas.width=widthC;
 
 }
 
@@ -24,7 +33,7 @@ after(abc,'https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/1506517_175396044482942
 
 <button type="button" onclick="merge();"> Submit</button>   <button type="button" onclick="window.location.reload();"> Reload </button><br>
 <input type="text" id="input1" VALUE="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14051_1792321270993337_940333441973894940_n.jpg?oh=5386ee10f4a0632ec89396226dadddb8&oe=57EF8B6D" /><br>
-    <canvas width="512" height="512" id="canvas"></canvas>
+    <canvas id="canvas"></canvas>
 
 
 
