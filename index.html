@@ -5,9 +5,12 @@
 
     <body>
 
+
     <script type="text/javascript">
 
 var def="https://www.googledrive.com/host/0B6XA6oTpuo9tR29QZl8zQWJTbFE";
+var abc="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14051_1792321270993337_940333441973894940_n.jpg?oh=5386ee10f4a0632ec89396226dadddb8&oe=57EF8B6D";
+var factor="1.0";
 merge();
 
 
@@ -34,13 +37,15 @@ after(abc,def);
 
 }
 
+
+
 </script>
 
 <h4> Enter the URL of your image in the input box and hit submit. :) <h4>
 
 URL of your Image: <input tabindex="" ype="text" id="input1" VALUE="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/14051_1792321270993337_940333441973894940_n.jpg?oh=5386ee10f4a0632ec89396226dadddb8&oe=57EF8B6D" /><br>
 
-<button type="button" onclick="merge();"> Submit</button>   <button type="button" onclick="window.location.reload();"> Reload </button>
+<button type="button" onclick="merge();merge();"> Submit</button>   <button type="button" onclick="window.location.reload();"> Reload </button>
 <p>
 <br><p>You may need to wait for sometime and click the submit button again after submitting URL if you get any dealys/ render problems. This delay is due to the internet speed and time needed to download High Quality images. :D<p><br> 
 
@@ -53,10 +58,12 @@ Output:
     Extra Settings:<br>
 ______________<br>
 <br>URL of base image: <input type="text" id="input2" VALUE="https://www.googledrive.com/host/0B6XA6oTpuo9tR29QZl8zQWJTbFE"/><br>
-______________
+_____________
 <br><br>
     Info: 232x192 PNG default base image has been used. <br>
     You may use your own versions. Contact 9818342334 or email your image to 072bct544@ioe.edu.np to include here. <br>
+    <br>
+    Barun Pandey's help in design and, Pravesh Koirala's beautiful words and help for a fix are appreciated.
 
 
 
@@ -87,10 +94,15 @@ function mainI() {
         ctx.drawImage(imga, 0, 0, canvas.width, canvas.height);
         
         ctx.globalAlpha = 0.9;
-        ctx.drawImage(img2, canvas.width-(232*(0.80*canvas.width/232)) , canvas.height-((192)*(0.80*canvas.width/192)) ,232*(0.80*canvas.width/232), (192)*(0.80*canvas.width/192));
+        ctx.drawImage(img2, canvas.width-(232*(factor*canvas.width/232)) , canvas.height-((192)*(factor*canvas.width/192)) ,232*(factor*canvas.width/232), (192)*(factor*canvas.width/192));
         	// canvas.width, (canvas.height)*(616/canvas.width));
 
+var image = ctx.toDataURL("image/png").replace("image/png", "image/octet-stream");  
+// here is the most important part because if you dont replace you will get a DOM 18 exception.
 
+
+window.location.href=image; 
+// it will save locally
         
     }
 }

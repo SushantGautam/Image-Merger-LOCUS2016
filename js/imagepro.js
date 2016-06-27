@@ -28,7 +28,6 @@ function loadImage(src, onload) {
     
     img.onload = onload;
     img.src = src;
-
     img.style.width = '200px';
 
     return img;
